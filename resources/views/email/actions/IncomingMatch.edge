@@ -1,0 +1,114 @@
+@layout('layout.email')
+
+@section('content')
+
+@if(lang=='th')
+<h3 style="color:#D60326">แมทช์กำลังจะมาถึง</h3>
+<h3>ข้อมูลแมทช์</h3>
+<table style="width:100%">
+    <tr style="color:#4A4A4A">
+        <td><h4>รวม</h4></td>
+        <td></td>
+        <td><h4>วันที่</h4></td>
+        <td><h4>เวลา</h4></td>
+    </tr>
+    <tr style="color:#D60326">
+        <td><h3>THB</h3></td>
+        <td><h3> {{total_price}} </h3></td>
+        <td><h3> {{day}} </h3></td>
+        <td><h3> {{time_start}} - {{time_end}} <h3></td>
+    </tr>
+</table>
+<div style="width:100%;height:8px; background-color:#707070;margin-bottom:1em;"></div>
+<div style="width:100%;display:table;">
+        <div style="width:100%;">
+            <table style="width:100%;color:#707070">
+                <tr><td><h3 style="color:#D60326">รายละเอียดการจอง</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ชื่อสนาม</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{provider}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ชื่อผู้จอง</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.fullname}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">รหัสการจอง</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{id}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">หมายเลขสนามที่จอง</h4></td></tr>
+                @each(court in courts)
+                <tr><td style="padding-bottom:1rem;"> {{court}} </td></tr>
+                @endeach   
+                <tr><td><h4 style="color:#4A4A4A">เบอร์โทรติดต่อ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.phone_number}} </td></tr>
+            </table>
+        </div>
+</div>
+<div style="width: 100%;padding: 2rem 2em 2em 0;">
+    <a href="" style="
+    text-decoration: none;
+    width: max-content;
+    display:inline-block;
+    padding: 0.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #D60326;
+    color: white;
+    border:none;
+    border-radius: 20px;">
+    ตรวจสอบ
+    </a>
+</div>
+
+@else
+
+<h3 style="color:#D60326">Incomming match</h3>
+<h3>Match data</h3>
+<table style="width:100%">
+    <tr style="color:#4A4A4A">
+        <td><h4>Total</h4></td>
+        <td></td>
+        <td><h4>Date</h4></td>
+        <td><h4>Time</h4></td>
+    </tr>
+    <tr style="color:#D60326">
+        <td><h3>THB</h3></td>
+        <td><h3> {{total_price}} </h3></td>
+        <td><h3> {{day}} </h3></td>
+        <td><h3> {{time_start}} - {{time_end}} <h3></td>
+    </tr>
+</table>
+<div style="width:100%;height:8px; background-color:#707070;margin-bottom:1em;"></div>
+<div style="width:100%;display:table;" >
+        <div style="width:100%;float:left">
+            <table style="width:100%;color:#707070">
+                <tr><td><h3 style="color:#D60326">Detail</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Provider</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{provider}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Booker</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.fullname}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">MAtch ID</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{id}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Courts</h4></td></tr>
+                @each(court in courts)
+                <tr><td style="padding-bottom:1rem;"> {{court}} </td></tr>
+                @endeach   
+                <tr><td><h4 style="color:#4A4A4A">Phone</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.phone_number}} </td></tr>
+            </table>
+        </div>
+</div>
+<div style="width: 100%;padding: 2rem 2em 2em 0;">
+    <a href="" style="
+    text-decoration: none;
+    width: max-content;
+    display:inline-block;
+    padding: 0.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #D60326;
+    color: white;
+    border:none;
+    border-radius: 20px;">
+    Check
+    </a>
+</div>
+
+@endif
+
+@endsection

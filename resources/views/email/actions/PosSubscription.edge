@@ -1,0 +1,112 @@
+@layout('layout.email')
+
+@section('content')
+
+@if(lang=='th')
+<h3 style="color:#D60326">การชำระเงินสำเร็จ</h3>
+<table style="width:100%">
+    <tr style="color:#4A4A4A">
+        <td><h4>คำสั่งซื้อ</h4></td>
+        <td>วันที่<h4>ชำระเงิน</h4></td>
+        <td><h4>สามารถใช้งานได้ถึง</h4></td>
+        <td><h4>ผู้ทำรายการ</h4></td>
+    </tr>
+    <tr style="color:#D60326">
+        <td><h3> {{refno}} </h3></td>
+        <td><h3> {{payment_date}} </h3></td>
+        <td><h3> {{expire_date}} </h3></td>
+        <td><h3> {{receipt_maker}} <h3></td>
+    </tr>
+</table>
+<div style="width:100%;height:8px; background-color:#707070;margin-bottom:1em;"></div>
+<div style="width:100%;display:table;">
+        <div style="width:100%;">
+            <table style="width:100%;color:#707070">
+                <tr><td><h3 style="color:#D60326">รายละเอียดคำสั่งซื้อ</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ชื่อสนาม</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{name}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">รายละเอียดแพ็คเกจ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{package_name}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ราคาแพ็คเกจ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{price}} ต่อเดือน</td></tr>
+                <tr><td><h4 style="color:#4A4A4A">จำนวนเดือนที่ซื้อ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{amount}}</td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ราคาสุทธิ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{total}}</td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ช่องทางการชำระเงิน</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{payment_method}}</td></tr>
+            </table>
+        </div>
+</div>
+<div style="width: 100%;padding: 2rem 2em 2em 0;">
+    <a href="" style="
+    text-decoration: none;
+    width: max-content;
+    display:inline-block;
+    padding: 0.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #D60326;
+    color: white;
+    border:none;
+    border-radius: 20px;">
+    ตรวจสอบ
+    </a>
+</div>
+
+@else
+
+<h3 style="color:#D60326">Payment Success</h3>
+<table style="width:100%">
+    <tr style="color:#4A4A4A">
+        <td><h4>Order Number</h4></td>
+        <td>date<h4>Payment</h4></td>
+        <td><h4>Expire Date</h4></td>
+        <td><h4>Customer Name</h4></td>
+    </tr>
+    <tr style="color:#D60326">
+        <td><h3> {{refno}} </h3></td>
+        <td><h3> {{payment_date}} </h3></td>
+        <td><h3> {{expire_date}} </h3></td>
+        <td><h3> {{receipt_maker}} <h3></td>
+    </tr>
+</table>
+<div style="width:100%;height:8px; background-color:#707070;margin-bottom:1em;"></div>
+<div style="width:100%;display:table;" >
+        <div style="width:100%;float:left">
+            <table style="width:100%;color:#707070">
+                <tr><td><h3 style="color:#D60326">Order Detail</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Buyer Name</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{name}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Package Detail</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{package_name}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Package Price</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{price}} ต่อเดือน</td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Subscription Amount</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{amount}}</td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Total</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{total}}</td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Payment Method</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{payment_method}}</td></tr>
+            </table>
+        </div>
+</div>
+<div style="width: 100%;padding: 2rem 2em 2em 0;">
+    <a href="" style="
+    text-decoration: none;
+    width: max-content;
+    display:inline-block;
+    padding: 0.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #D60326;
+    color: white;
+    border:none;
+    border-radius: 20px;">
+    Check
+    </a>
+</div>
+
+@endif
+
+@endsection

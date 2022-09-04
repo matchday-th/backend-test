@@ -1,0 +1,59 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+        <title>Booking Success!</title>
+    </head>
+    <body style="text-align: center;font-family: 'Prompt';font-weight: 500;width: 100%;color: black">
+        <div style="width: 428px;text-align: center;margin: auto">
+            <div class="title">
+                <img style="height: 160px" src="https://cdn.discordapp.com/attachments/780994260471775272/980732413778993172/Screen_Shot_2565-05-30_at_13.29.57.png" />
+                <br>
+                <span style="color: #F50201;font-size: 22px">การจองของคุณสำเร็จ !</span>
+                <br>
+                <span style="font-weight: 400;font-size: 16px">รหัสการจอง {{id}}</span>
+            </div>
+    
+            <br>
+            <div style="border-bottom: 2px solid #F50201">
+            </div>
+            <br>
+    
+            <div class="body" style="text-align">
+                <span style="font-size: 22px">รายละเอียดการจอง</span><br>
+                <span style="font-size: 18px">ชื่อสนาม</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{provider}}</span><br><br>
+                <span style="font-size: 18px">วัน-เวลา</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{day}} - {{time_start}}-{{time_end}}</span><br><br>
+                <span style="font-size: 18px">หมายเลขสนาม</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{courts}}</span><br><br>
+                <span style="font-size: 18px">ราคา</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{total_price}} THB</span><br><br>
+                <span style="font-size: 18px">บริการพิเศษ</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{add_price}}</span><br><br>
+                <span style="font-size: 18px">ชื่อผู้จอง</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{user.fullname}}</span><br><br>
+                <span style="font-size: 18px">เบอร์โทรศัพท์</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{user.phone_number}}</span><br><br>
+            </div>
+    
+            <br>
+            <div style="border-bottom: 2px solid #F50201">
+            </div>
+            <br>
+    
+            <div class="footer">
+                <span>ดาวน์โหลดแอพติดเครื่องไว้</span><br>
+                <span style="font-size: 16px;font-weight: 400">{{'สำหรับ Android (กดที่ภาพเพื่อดาวน์โหลด)'}}</span><br>
+                <img style="margin: 14px" src="https://cdn.discordapp.com/attachments/780994260471775272/980734888221229137/Download_on_the_App_Store_Badge_US-UK_blk_092917-01_2.png" />
+                <br>
+                <span style="font-size: 16px;font-weight: 400">{{'สำหรับ iOS (กดที่ภาพเพื่อดาวน์โหลด)'}}</span><br>
+                <img src="https://cdn.discordapp.com/attachments/780994260471775272/980734888477089792/google-play-badge_2_1.png" />
+            </div>
+        </div>
+    </body>
+</html>

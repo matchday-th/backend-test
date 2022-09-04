@@ -1,0 +1,113 @@
+.receipt-container {
+    font-family: 'Prompt', sans-serif;
+    color: #333333;
+    width: 600px;
+    .top-banner {
+        position: relative;
+        height: 290px;
+        .header {
+            font-size: 18px;
+            position: absolute;
+            top: 136px;
+            left: 55px;
+            font-weight: 500;
+            .title {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            .sub-header {
+                display: flex;
+                justify-content: space-between;
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+    .receipt-content {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f1f1f1d9;
+        height: fit-content;
+        padding: 20px 55px;
+        .content-box {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            .title {
+                font-weight: 500;
+                line-height: 3rem;
+            }
+            .content-details {
+                display: flex;
+                flex-direction: column;
+                .detail {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0.25rem 0px;
+                }
+            }
+            .list-box {
+                background-color: #ffffff;
+                padding: 10px 19px;
+                border: 1px solid #dedede;
+                border-radius: 22px;
+                .list-header {
+                    color: #b1b1b1;
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid #f1f1f1;
+                    padding-bottom: 7px;
+                    margin-bottom: 14px;
+                }
+                .list-body {
+                    display: flex;
+                    flex-direction: column;
+                    .list-text {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 6px;
+
+                        .text {
+                            display: flex;
+                            flex-direction: column;    
+                            .sub-text {
+                                font-size: 9px;
+                                line-height: 5px;
+                            }
+                        }
+                    }
+                }
+                .list-footer {
+                    text-align: end;
+                    border-top: 1px solid #f1f1f1;
+                    margin-top: 9px;
+                    padding-top: 9px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .footer-banner {
+        img {
+            width: 100%;
+        }
+    }
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+.red {
+    color: #CC3333;
+}
+.grey {
+    color: #7f7f7f;
+}

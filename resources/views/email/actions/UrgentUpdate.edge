@@ -1,0 +1,49 @@
+@layout('layout.email')
+
+@section('content')
+
+@if(lang=='th')
+<html>
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สนาม {{provider}} ต้องการแก้ไขแมทช์ของคุณ</title>
+</head>
+
+<body>
+    <span>หมายเลขการจอง: {{id}}</span><br>
+    <span>วัน/เวลา: {{day}} | {{time_start}} - {{time_end}}</span><br><br>
+    <span>หมายเลขสนามที่จอง</span><br>
+    @each(court in courts)
+    <span> {{court}} </span><br>
+    @endeach
+    <br>
+    <span>กรุณารอการติดต่อจากสนามกีฬา</span><br>
+    <span>หากไม่ได้รับการติดต่อ กรุณาโทร <a href="tel:{{provider_tel}}">{{provider_tel}}</a> เพื่อติดต่อสนามกีฬา</span><br>
+    <span>หรือโทร <a href="tel:0935552935">0935552935</a> เพื่อติดต่อบริษัท แมทช์เดย์ฮับ</span><br>
+</body>
+</html>
+
+@else
+
+<html>
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Facility {{provider}} Requested to change your booking</title>
+</head>
+
+<body>
+    <span>BookingID: {{id}}</span><br>
+    <span>Date/Time: {{day}} | {{time_start}} - {{time_end}}</span><br><br>
+    <span>Courts</span><br>
+    @each(court in courts)
+    <span> {{court}} </span><br>
+    @endeach
+    <br>
+    <span>Please wait for further contact from Facility</span><br>
+    <span>You may call this number <a href="tel:{{provider_tel}}">{{provider_tel}}</a> to contact facility</span><br>
+    <span>or call <a href="tel:0935552935">0935552935</a> for support from Matchday Hub</span><br>
+</body>
+</html>
+@endif
+
+@endsection

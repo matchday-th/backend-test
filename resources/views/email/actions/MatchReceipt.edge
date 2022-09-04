@@ -1,0 +1,183 @@
+@layout('layout.email')
+
+@section('content')
+
+@if(lang=='th')
+
+<table style="width:100%">
+    <tr style="color:#4A4A4A">
+        <td><h4>รวม</h4></td>
+        <td></td>
+        <td><h4>วันที่</h4></td>
+        <td><h4>เวลา</h4></td>
+    </tr>
+    <tr style="color:#D60326">
+        <td><h3>THB</h3></td>
+        <td><h3> {{total_price}} </h3></td>
+        <td><h3> {{day}} </h3></td>
+        <td><h3> {{time_start}} - {{time_end}} <h3></td>
+    </tr>
+</table>
+<div style="width:100%;height:8px; background-color:#707070;margin-bottom:1em;"></div>
+<div style="width:100%;display:table;">
+        <div style="min-width:40%;float:left;">
+            <table style="width:100%;color:#707070">
+                <tr><td><h3 style="color:#D60326">รายละเอียดการจอง</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ชื่อสนาม</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{provider}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ชื่อผู้จอง</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.fullname}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">รหัสการจอง</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{id}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">หมายเลขสนามที่จอง</h4></td></tr>
+                @each(court in courts)
+                <tr><td style="padding-bottom:1rem;"> {{court}} </td></tr>
+                @endeach   
+                <tr><td><h4 style="color:#4A4A4A">เบอร์โทรติดต่อ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.phone_number}} </td></tr>
+            </table>
+        </div>
+        <div style="min-width:60%;float:left;">
+            <table style="width:100%;color:#707070;box-shadow: 0px 3px 8px #00000029;padding:0em 1em 1em 1em;">
+                <tr><td><h3 style="color:#D60326">ใบเสร็จรับเงิน</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">รูปแบบการชำระเงิน</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{payment.method}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">เงื่อนไขการชำระเงิน</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{payment.type}} </td></tr>
+                <tr>
+                    <td>
+                        <table style="width:100%;color:#707070">
+                            <tr>
+                                <td><h4 style="color:#4A4A4A">รายละเอียด</h4></td>
+                                <td></td>
+                                <td></td>
+                                <td><h4 style="color:#4A4A4A">ราคา</h4></td>
+                            </tr>
+                            @each(detail in details)
+                              <tr>
+                                <td> X{{detail.amount}} </td>
+                                <td> {{detail.name}} </td>
+                                <td> THB </td>
+                                <td> {{detail.total}} </td>
+                              </tr>
+                            @endeach
+                            <tr>
+                                <td><h4 style="color:#4A4A4A">รวม</h4></td>
+                                <td></td>
+                                <td><h4 style="color:#4A4A4A"> THB </h4></td>
+                                <td><h4 style="color:#4A4A4A"> {{total_price}} </h4></td>
+                              </tr>
+                              <tr>
+                                <td colspan="4"><div style="margin-bottom:1em;width:100%;height:2px;background-color:#707070"></div></td>
+                            </tr>
+                            <tr>
+                              <td>ยอดที่ชำระ</td>
+                              <td></td>   
+                              <td> THB </td>
+                              <td> {{payment.total}} </td>
+                          </tr>
+                          <tr>
+                              <td><h4>ยอดที่ค้างชำระ</h4></td>
+                              <td></td>   
+                              <td><h4> THB </h4></td>
+                              <td><h4> {{Number(total_price)-Number(payment.total)}} </h4></td>
+                          </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</div>
+<div style="width:100%;text-align:center"><p style="color:#707070">ผู้จองควรนำใบเสร็จแบบเดียวกันนี้มาแสดงเพื่อใช้ในการเข้าใช้บริการสนามกีฬา</p></div>
+
+@else
+
+<table style="width:100%">
+    <tr style="color:#4A4A4A">
+        <td><h4>Total</h4></td>
+        <td></td>
+        <td><h4>วันที่จอง</h4></td>
+        <td><h4>เวลาที่จอง</h4></td>
+    </tr>
+    <tr style="color:#D60326">
+        <td><h3>THB</h3></td>
+        <td><h3> {{total_price}} </h3></td>
+        <td><h3> {{day}} </h3></td>
+        <td><h3> {{time_start}} - {{time_end}} <h3></td>
+    </tr>
+</table>
+<div style="width:100%;height:8px; background-color:#707070;margin-bottom:1em;"></div>
+<div style="width:100%;display:table;" >
+        <div style="min-width:40%;float:left">
+            <table style="width:100%;color:#707070">
+                <tr><td><h3 style="color:#D60326">รายละเอียดการจอง</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ชื่อสนาม</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{provider}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">ผู้จอง</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.fullname}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">MAtch ID</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{id}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">คอร์ท/สนาม ที่ได้</h4></td></tr>
+                @each(court in courts)
+                <tr><td style="padding-bottom:1rem;"> {{court}} </td></tr>
+                @endeach   
+                <tr><td><h4 style="color:#4A4A4A">เบอร์โทรติดต่อ</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{user.phone_number}} </td></tr>
+            </table>
+        </div>
+        <div style="min-width:60%;float:left">
+            <table style="width:100%;color:#707070;box-shadow: 0px 3px 8px #00000029;padding:0em 1em 1em 1em;">
+                <tr><td><h3 style="color:#D60326">Receipt</h3></td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Method</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{payment.method}} </td></tr>
+                <tr><td><h4 style="color:#4A4A4A">Type</h4></td></tr>
+                <tr><td style="padding-bottom:1rem;"> {{payment.type}} </td></tr>
+                <tr>
+                    <td>
+                        <table style="width:100%;color:#707070">
+                            <tr>
+                                <td><h4 style="color:#4A4A4A">Detail</h4></td>
+                                <td></td>
+                                <td></td>
+                                <td><h4 style="color:#4A4A4A">Price</h4></td>
+                            </tr>
+                            @each(detail in details)
+                              <tr>
+                                <td> X{{detail.amount}} </td>
+                                <td> {{detail.name}} </td>
+                                <td> THB </td>
+                                <td> {{detail.total}} </td>
+                              </tr>
+                            @endeach
+                            <tr>
+                                <td><h4 style="color:#4A4A4A">ราคารวม</h4></td>
+                                <td></td>
+                                <td><h4 style="color:#4A4A4A"> THB </h4></td>
+                                <td><h4 style="color:#4A4A4A"> {{total_price}} </h4></td>
+                              </tr>
+                              <tr>
+                                <td colspan="4"><div style="margin-bottom:1em;width:100%;height:2px;background-color:#707070"></div></td>
+                            </tr>
+                            <tr>
+                              <td>Paid</td>
+                              <td></td>   
+                              <td> THB </td>
+                              <td> {{payment.total}} </td>
+                          </tr>
+                          <tr>
+                              <td><h4>Remain</h4></td>
+                              <td></td>   
+                              <td><h4> THB </h4></td>
+                              <td><h4> {{Number(total_price)-Number(payment.total)}} </h4></td>
+                          </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</div>
+<div style="width:100%;text-align:center"><p style="color:#707070">Booker are required to show this bill for use booked courts</p></div>
+
+@endif
+
+@endsection

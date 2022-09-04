@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ขอบคุณสำหรับการชำระเงิน!</title>
+  <style>
+    .receipt-container {
+      color: #333333;
+      border: 1px solid #333333
+    }
+    .top-banner {
+      position: relative;
+      height: 290px;
+    }
+    .header {
+      font-size: 18px;
+      position: absolute;
+      top: 136px;
+      left: 55px;
+      font-weight: 500;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .sub-header {
+      width: 100%;
+      text-align: center;
+    }
+    .content {
+
+    }
+    .receipt-content {
+      width: 99%;
+      background-color: #f1f1f1d9;
+      height: fit-content;
+      padding: 20px 55px;
+      margin-top: 1rem;
+    }
+    .content-box {
+      width: 50%;
+    }
+    .title {
+      font-weight: 500;
+    }
+    .content-details {
+      width: 50%;
+    }
+    .detail {
+      margin-bottom: 1rem;
+    }
+    .list-box {
+      background-color: #ffffff;
+      padding: 10px 19px;
+      border: 1px solid #dedede;
+      border-radius: 22px;
+      width: 100%;
+    }
+    .list-header {
+      color: #b1b1b1;
+      width: 100%;
+      border-bottom: 1px solid #f1f1f1;
+      padding-bottom: 7px;
+      margin-bottom: 14px;
+    }
+    .sub-text {
+      font-size: 9px;
+      line-height: 5px;
+    }
+    .text {
+      line-height: 0px
+    }
+    .list-text {
+      margin-bottom: 1rem;
+    }
+    .list-body {
+      
+    }
+    .list-footer {
+      text-align: end;
+      border-top: 1px solid #f1f1f1;
+      margin-top: 9px;
+      padding-top: 9px;
+      font-size: 20px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 10px
+    }
+    .red {
+      color: #CC3333;
+    }
+    .grey {
+      color: #7f7f7f;
+    }
+  </style>
+</head>
+
+<body>
+  <center style="background-color: white">
+    <table class="receipt-container">
+      <table>
+        <tbody>
+          <div class="top-banner">
+            <img style="width: 100%" src="https://media.matchday.co.th/emilpic/topbar.png" />
+            <div class="header">
+              <table style="width: 100%" class="title">
+                <tbody>
+                  <tr>ขอบคุณสำหรับการชำระเงิน! {{product.type.th}} สำหรับคุณพร้อมใช้งานแล้ว!</tr>
+                  <tr class="red">Your purchased {{product.type.en}} is now ready!</tr>
+                </tbody>
+              </table>
+              <table class="sub-header">
+                <tbody>
+                  <tr class="content">
+                    <th>รวม</th>
+                    <th>วันที่</th> 
+                    <th>เวลา</th>
+                  </tr>
+                  <tr class="content red">
+                    <td>THB {{total_paid}}</td>
+                    <td>{{date}}</td> 
+                    <td>{{time}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </tbody>
+      </table>
+  
+      <table class="receipt-content">
+        <tbody>
+          <tr class="content-details">
+            <td style="text-align: initial" class="title red">รายระเอียดการชำระเงิน</td>
+            <td style="text-align: initial" class="title red">รายการชำระเงิน - {{price_list.length}} รายการ</td>
+          </tr>
+          <tr class="content-box">
+            <td>
+              <div class="detail">
+                <span class="grey">ชื่อสนาม</span><br>
+                <span>{{provider}}</span>
+              </div>
+              <div class="detail">
+                <span class="grey">ชื่อผู้จอง</span><br>
+                <span>{{user.fullname}}</span>
+              </div>
+              <div class="detail">
+                <span class="grey">รหัสอ้างอิง</span><br>
+                <span>{{product.id}}</span>
+              </div>
+              <div class="detail">
+                <span class="grey">{{product.label}}</span><br>
+                <span>{{product.name}}</span>
+              </div>
+              <div class="detail">
+                <span class="grey">เบอร์โทรติดต่อ</span><br>
+                <span>{{user.phone_number}}</span>
+              </div>
+              <div class="detail">
+                <span class="grey">รหัสการชำระเงิน</span><br>
+                <span>{{refno}}</span>
+              </div>
+            </td>
+            <td style="display: block">
+              <div class="list-box">
+                <table class="list-header">
+                  <th style="text-align: start">รหัส</th>
+                  <th style="text-align: end;">ราคา</th>
+                </table>
+                <div class="list-body">
+                  @each(list in price_list)
+                  <div class="list-text">
+                    <table style="width:100%" class="text">
+                      <th style="display:initial">{{list.name}}</th>
+                      <th style="text-align: end;">{{list.price}}</th>
+                    </table>
+                    <span class="sub-text grey">{{list.limit}}</span>
+                    @if(list.date_time)
+                      <span class="sub-text grey">- {{list.date_time}}</span>
+                    @endif
+                  </div>
+                  @endeach   
+                </div>
+                <div class="list-footer">
+                  <span>รวม THB {{total_paid}}</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <table>
+        <tbody>
+          <div class="footer-banner">
+            <img style="width: 100%;" src="https://media.matchday.co.th/emilpic/bottombar.png" />
+            <div class="footer">
+              <span>บริษัท แมทช์เดย์ ฮับ จำกัด, 1 อาคาร เอ็มไพร์ทาวเวอร์ ชั้น 47, ยูนิต 4703, ถนน สาทรใต้, แขวงนาวา, เขตสาทร, กรุงเทพมหานคร 10120</span><br>
+              <span>ติดต่อเรา admin@matchday.co.th | 093-5552935</span><br>
+              <span>นโยบายส่วนตัว | ข้อกำหนดการใช้งาน</span><br>
+              <span>© 2020 MATCHDAY | All rights reserved |</span>
+            </div>
+          </div>
+        </tbody>
+      </table>
+  
+    </table>
+  </center>
+</body>
+
+</html>

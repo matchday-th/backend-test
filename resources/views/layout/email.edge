@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email</title>
+</head>
+<body>
+
+    <div style="font-family: Arial, Helvetica, sans-serif; color: #4A4A4A;padding-top:1rem;">
+        <div style="
+        max-width: 1024px;background-color: white;margin: auto; padding-bottom:2em;">
+            <table style="width:100%;padding-bottom:2em;">
+                <tr>
+                    <td style="text-transform: uppercase;">
+                        <div style="display:flex;align-items:center;">
+                            <img src="https://res.cloudinary.com/matchday-hub/image/upload/v1589469879/Logo%20app/Matchday_Logo_Final_pwphiz.png" style="width: 40px;height: 40px;object-fit: contain;">
+                        <h3 style="color:#D60326">
+                        Matchday
+                        </h3></div>
+                    </td>
+                    <td style="width:100%">
+                        <div 
+                            style="
+                                position: relative;
+                                display:flex;
+                                align-items:center;
+                                margin-left:1em;
+                                ">
+                                <img src="https://res.cloudinary.com/matchday-hub/image/upload/v1589469879/Logo%20app/Matchday_Logo_Final_pwphiz.png" alt="" style="position:absolute;width:40px;height: 40px;left:0;top:0;">
+                                <h4 style="color:white;margin-left:10%;position:relative"><i>Enjoy Your Match!</i></h4></div>
+                    </td>
+                </tr>
+            </table>
+                @!section('content')
+        </div>
+        <div style="max-width:1024px;border:1px solid #707070;margin:auto;">
+            @if(ad)
+            <div><a href="{{adlink}}"><img src="{{ad}}" alt="" style="height:160px;width:100%;object-fit:contain"></a></div>
+            @endif
+            <div style="width:100%;height:30px;background: transparent linear-gradient(90deg, #D60326 0%, #6B0213 100%) 0% 0% no-repeat padding-box;"></div>
+        </div>
+        <div style="background-color: #eeeeee;max-width:1024px;margin:auto;padding-top:1em;">
+            <div style="width: 100%; padding-bottom:2em;">
+                <table style="width: 90%;margin: auto;font-size:12;">
+                    <tr>
+                        <td style="text-align:center;">
+                            @if(lang == 'en')
+                            MATCHDAY HUB Co.,Ltd. 1 Empire Tower 47th Floor, Unit 4703,
+                            South Sathorn Rd., Yannawa, Sathorn, Bangkok 10120
+                            @else
+                            บริษัท แมทช์เดย์ ฮับ จำกัด, 1 อาคาร เอ็มไพร์ทาวน์เวอร์ ชั้น 47, ยูนิต 4703,
+                            ถนน สาทรใต้, แขวงยานนาวา, เขตสาทร, กรุงเทพมหานคร 10120
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            @if(lang == 'en')
+                            Contact us
+                            @else
+                            ติดต่อเรา
+                            @endif
+                            <a href="mailto:admin@matchday.co.th" style="color: #444444;padding:0.5rem;">admin@matchday.co.th</a> | 
+                            <a href="tel:+66935552935" style="color: #444444;">093-555-2935</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color: #707070;"> 
+                            <a href="https://matchday.co.th/privacy.html" style="color: #707070;padding-right:0.5rem;"> 
+                                @if(lang=='en') 
+                                Privacy policy 
+                                @else 
+                                นโยบายความเป็นส่วนตัว 
+                                @endif 
+                            </a> | 
+                            <a href="https://matchday.co.th/terms.html" style="color: #707070;">
+                                @if(lang=='en')
+                                Terms of use
+                                @else
+                                ข้อกำหนดการใช้งาน
+                                @endif
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">© 2020 MATCHDAY | All rights reserved |</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

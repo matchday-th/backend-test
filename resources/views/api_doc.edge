@@ -1,0 +1,27 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1><a href="/doc/index">Matchday API</a></h1>
+  <p>Click on the button to show APIs path</p>
+  <div style="display: flex; flex-direction: column">
+  @each(route in list)
+  <div>
+    <h3>{{route}}</h3>
+  </div>
+  @endeach
+  </div>
+
+
+</div>
+
+</body>
+
+<footer style="margin : 50%">
+
+</footer>
